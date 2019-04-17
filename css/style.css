@@ -99,12 +99,18 @@ body {
     background-color: var(--color-grey-light-2); }
   .user-nav__icon-box {
     position: relative; }
+  .user-nav__icon-box:hover .user-nav__notification {
+    background-color: var(--color-primary-light);
+    transform: scale(1.3); }
+  .user-nav__icon-box:hover .notification {
+    display: block;
+    opacity: 1; }
   .user-nav__icon {
     height: 2.25rem;
     width: 2.25rem;
     fill: var(--color-grey-dark-2); }
   .user-nav__notification {
-    font-size: .8rem;
+    font-size: .9rem;
     height: 1.75rem;
     width: 1.75rem;
     border-radius: 50%;
@@ -115,11 +121,14 @@ body {
     right: 1.2rem;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    transition: all .2s; }
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
     margin-right: 1rem; }
+  .user-nav__messages {
+    display: block; }
 
 .side-nav {
   font-size: 1.4rem;
@@ -441,6 +450,47 @@ body {
   .btn:focus {
     outline: none;
     animation: pulsate 1s infinite; }
+
+.notification {
+  position: absolute;
+  top: 100%;
+  left: 55%;
+  width: 32rem;
+  max-height: 20.7rem;
+  overflow-y: scroll;
+  background-color: #fff;
+  z-index: 400;
+  transform: translateX(-53%);
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  display: none;
+  transition: all 0.2s 0.1s; }
+  .notification__header {
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 600; }
+  .notification__item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer; }
+    .notification__item:not(:last-child) {
+      border-bottom: var(--line); }
+  .notification__item:hover {
+    background-color: var(--color-grey-light-2); }
+  .notification__img {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    margin-right: 1.5rem; }
+  .notification__user-box {
+    margin-right: auto;
+    font-size: 1rem; }
+    .notification__user-box-name {
+      font-size: 1.5rem; }
+  .notification__timestamp {
+    font-size: 1rem;
+    text-align: right; }
 
 .container {
   max-width: 120rem;
